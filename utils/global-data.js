@@ -4,7 +4,7 @@ export const getGlobalData = () => {
     : '강성민';
   const blogTitle = process.env.BLOG_TITLE
     ? decodeURI(process.env.BLOG_TITLE)
-    : 'Next.js 블로그';
+    : 'Next.js Blog Theme';
   const footerText = process.env.BLOG_FOOTER_TEXT
     ? decodeURI(process.env.BLOG_FOOTER_TEXT)
     : 'All rights reserved.';
