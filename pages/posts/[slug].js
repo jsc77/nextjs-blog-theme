@@ -14,7 +14,7 @@ import CustomLink from '../../components/CustomLink';
 import Footer from '../../components/Footer';
 import Layout, { GradientBackground } from '../../components/Layout';
 import SEO from '../../components/SEO';
-
+import React, { useState } from 'react';
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
 // to handle import statements. Instead, you must include components in scope
@@ -34,6 +34,10 @@ export default function PostPage({
   nextPost,
   globalData,
 }) {
+  const [signup, setSignup] = useState(false);
+  function closeModal() {
+    setSignup(false);
+  }
   return (
     <Layout>
       <SEO
@@ -55,6 +59,33 @@ export default function PostPage({
           </article>
         </main>
         <div className="grid md:grid-cols-2 lg:-mx-24 mt-12">
+          <div className="Main">
+            <input
+              type="button"
+              value="회원가입"
+              className="blueBtn"
+              onClick={() => setSignup(!signup)}
+            />
+
+            {signup && (
+              <div className="Modal" onClick={() => setSignup(!signup)}>
+                <div className="modalBody" onClick={(e) => e.stopPropagation()}>
+                  <button id="modalCloseBtn" onClick={closeModal}>
+                    ✖
+                  </button>
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/6Kn_o5H76yI"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+            )}
+          </div>
           {prevPost && (
             <Link href={`/posts/${prevPost.slug}`}>
               <a className="py-8 px-10 text-center md:text-right first:rounded-t-lg md:first:rounded-tr-none md:first:rounded-l-lg last:rounded-r-lg first last:rounded-b-lg backdrop-blur-lg bg-white dark:bg-black dark:bg-opacity-30 bg-opacity-10 hover:bg-opacity-20 dark:hover:bg-opacity-50 transition border border-gray-800 dark:border-white border-opacity-10 dark:border-opacity-10 last:border-t md:border-r-0 md:last:border-r md:last:rounded-r-none flex flex-col">
