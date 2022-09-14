@@ -44,7 +44,7 @@ export default function Index({ posts, globalData }) {
           ))}
         </ul>
       </main>
-      <Footer copyrightText={'포트폴리오'} />
+      <Footer copyrightText={'강성민'} />
       <GradientBackground
         variant="large"
         className="fixed top-20 opacity-40 dark:opacity-60"
