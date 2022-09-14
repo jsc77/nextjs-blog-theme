@@ -26,6 +26,9 @@ const components = {
   // See the notes in README.md for more details.
   Head,
 };
+function closeModal() {
+  setSignup(false);
+}
 
 export default function PostPage({
   source,
@@ -35,9 +38,7 @@ export default function PostPage({
   globalData,
 }) {
   const [signup, setSignup] = useState(false);
-  function closeModal() {
-    setSignup(false);
-  }
+
   return (
     <Layout>
       <SEO
@@ -62,28 +63,33 @@ export default function PostPage({
           <div className="Main">
             <input
               type="button"
-              value="회원가입"
-              className="blueBtn"
+              value="유튜브 동영상"
+              className="blueBtn text-indigo-500 text-3xl"
               onClick={() => setSignup(!signup)}
             />
-
             {signup && (
-              <div className="Modal" onClick={() => setSignup(!signup)}>
-                <div className="modalBody" onClick={(e) => e.stopPropagation()}>
-                  <button id="modalCloseBtn" onClick={closeModal}>
-                    ✖
-                  </button>
-                  <iframe
-                    width="560"
-                    height="315"
-                    src="https://www.youtube.com/embed/6Kn_o5H76yI"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
+              <>
+                <div className="Modal z-50	" onClick={() => setSignup(!signup)}>
+                  <div
+                    className="modalBody"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <button id="modalCloseBtn" onClick={closeModal}>
+                      ✖
+                    </button>
+                    <iframe
+                      width="560"
+                      height="315"
+                      src="https://www.youtube.com/embed/6Kn_o5H76yI"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
                 </div>
-              </div>
+                안녕하세요
+              </>
             )}
           </div>
           {prevPost && (
