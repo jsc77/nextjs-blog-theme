@@ -26,9 +26,6 @@ const components = {
   // See the notes in README.md for more details.
   Head,
 };
-function closeModal() {
-  setSignup(false);
-}
 
 export default function PostPage({
   source,
@@ -39,6 +36,9 @@ export default function PostPage({
 }) {
   const [signup, setSignup] = useState(false);
 
+  function closeModal() {
+    setSignup(false);
+  }
   return (
     <Layout>
       <SEO
