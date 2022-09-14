@@ -53,6 +53,33 @@ export default function PostPage({
           {frontMatter.description && (
             <p className="text-xl mb-4">{frontMatter.description}</p>
           )}
+          <input
+            type="button"
+            value="유튜브 동영상"
+            className="blueBtn text-indigo-500 text-3xl"
+            onClick={() => setSignup(!signup)}
+          />
+          {signup && (
+            <>
+              <div className="Modal z-50	" onClick={() => setSignup(!signup)}>
+                <div className="modalBody" onClick={(e) => e.stopPropagation()}>
+                  <button id="modalCloseBtn" onClick={closeModal}>
+                    ✖
+                  </button>
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/6Kn_o5H76yI"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+              안녕하세요
+            </>
+          )}
         </header>
         <main>
           <article className="prose dark:prose-dark">
@@ -60,38 +87,6 @@ export default function PostPage({
           </article>
         </main>
         <div className="grid md:grid-cols-2 lg:-mx-24 mt-12">
-          <div className="Main">
-            <input
-              type="button"
-              value="유튜브 동영상"
-              className="blueBtn text-indigo-500 text-3xl"
-              onClick={() => setSignup(!signup)}
-            />
-            {signup && (
-              <>
-                <div className="Modal z-50	" onClick={() => setSignup(!signup)}>
-                  <div
-                    className="modalBody"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <button id="modalCloseBtn" onClick={closeModal}>
-                      ✖
-                    </button>
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/6Kn_o5H76yI"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
-                    ></iframe>
-                  </div>
-                </div>
-                안녕하세요
-              </>
-            )}
-          </div>
           {prevPost && (
             <Link href={`/posts/${prevPost.slug}`}>
               <a className="py-8 px-10 text-center md:text-right first:rounded-t-lg md:first:rounded-tr-none md:first:rounded-l-lg last:rounded-r-lg first last:rounded-b-lg backdrop-blur-lg bg-white dark:bg-black dark:bg-opacity-30 bg-opacity-10 hover:bg-opacity-20 dark:hover:bg-opacity-50 transition border border-gray-800 dark:border-white border-opacity-10 dark:border-opacity-10 last:border-t md:border-r-0 md:last:border-r md:last:rounded-r-none flex flex-col">

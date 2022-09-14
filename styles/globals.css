@@ -53,16 +53,3 @@ body {
 #modalCloseBtn:hover {
   cursor: pointer;
 }
-
-/* @layer components {
-  .hoverEffect {
-    @apply ease-in-out duration-300 border-4 border-transparent hover:border-white cursor-pointer hover:bg-indigo-500 h-auto w-auto;
-  }
-  .box {
-    width: 200px;
-    height: 40px;
-    border-radius: 50px;
-    background: var(--accent);
-    cursor: pointer;
-  }
-} */
