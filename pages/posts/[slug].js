@@ -77,7 +77,6 @@ export default function PostPage({
                   ></iframe>
                 </div>
               </div>
-              안녕하세요
             </>
           )}
         </header>
